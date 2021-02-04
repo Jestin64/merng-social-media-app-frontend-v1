@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { Button, Form, Card, Icon} from 'semantic-ui-react'
 import { Link, useHistory } from "react-router-dom"
 import {AuthContext} from "../../context/auth.context"
@@ -24,15 +24,14 @@ mutation LoginUser(
 function Login() {
     const context = useContext(AuthContext)
     const history = useHistory()
-    const [values, setValues] = React.useState({
+    const [values, setValues] = useState({
         username:'',
         password:''
     })
 
-    const [errors ,setErrors] = React.useState({})
+    const [errors ,setErrors] = useState({})
     const [loginUser, {loading}] = useMutation(LOGIN_USER, {
         update(proxy, result){
-            //console.log(result.data.login)
             context.login(result.data.login) 
             history.push('/')
         },  

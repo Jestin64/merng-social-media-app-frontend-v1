@@ -9,10 +9,10 @@ import App from "./App"
 
 
 const httplink = createHttpLink({
-    uri:  'https://merngsocialmedia-backend.herokuapp.com/'   // pass the gql endpoint api
+    uri:  'http://localhost:3000'   // pass the gql endpoint api
 })
 
-// 'http://localhost:3000'
+//  'https://merngsocialmedia-backend.herokuapp.com/' 
 
 
 const authLink = setContext(() => {
